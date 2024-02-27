@@ -1,0 +1,3 @@
+additionalProperties:
+  withInterfaces: true
+  supportsES6: false

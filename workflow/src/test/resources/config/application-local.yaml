@@ -1,0 +1,19 @@
+logging:
+  level:
+    io.vanillabp: DEBUG
+
+server:
+  port: 9080
+
+spring:
+  application:
+    name: usecase
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:file:./demodb.h2;DB_CLOSE_ON_EXIT=FALSE
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+  main:
+    allow-bean-definition-overriding: true

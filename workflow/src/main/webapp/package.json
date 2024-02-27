@@ -1,0 +1,10 @@
+{
+  "name": "usecase",
+  "version": "0.0.1-SNAPSHOT",
+  "private": true,
+  "dependencies": {
+  },
+  "scripts": {
+    "build": ""
+  }
+}

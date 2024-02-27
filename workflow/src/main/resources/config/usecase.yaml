@@ -1,0 +1,21 @@
+spring:
+  liquibase:
+    usecase:
+      change-log: classpath:usecase/liquibase/master.yaml
+      database-change-log-table: usecase_changelog
+      database-change-log-lock-table: usecase_changeloglock
+      contexts: usecase   # see https://github.com/liquibase/liquibase/issues/4582
+
+usecase:
+  my-value: 1
+
+vanillabp:
+  workflow-modules:
+    default-adapter: camunda8
+    usecase:
+      workflows:
+        UseCase:
+          # config specific to process 'UseCase'
+      adapters:
+        camunda8:
+          resources-location: classpath*:/usecase/processes8  # location specific to workflow module and adapter

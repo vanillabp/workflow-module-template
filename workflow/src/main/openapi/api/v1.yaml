@@ -1,0 +1,33 @@
+openapi: 3.0.0
+info:
+  description: GUI API
+  version: '1.0'
+  title: gui
+servers:
+  - url: /gui/api/v1
+
+paths:
+  /start-form:
+    post:
+      tags:
+        - start-form
+      summary: Submit the workflow's start-form
+      operationId: start
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartForm'
+      responses:
+        200:
+          description: success
+        400:
+          description: validation failed
+
+components:
+  schemas:
+    StartForm:
+      type: object
+      properties:
+        value1:
+          type: string

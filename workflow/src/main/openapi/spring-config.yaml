@@ -1,0 +1,15 @@
+modelNameSuffix: Dto
+generateApis: true
+generateModels: true
+generateSupportingFiles: false
+generateModelTests: false
+generateModelDocumentation: false
+generateApiTests: false
+generateApiDocumentation: false
+async: false
+dateLibrary: java8
+hideGenerationTimestamp: true
+interfaceOnly: true
+reactive: false
+useTags: true
+useJakartaEe: true
