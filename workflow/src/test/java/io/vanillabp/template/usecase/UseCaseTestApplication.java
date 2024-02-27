@@ -6,8 +6,12 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EntityScan(basePackageClasses = UseCaseTestApplication.class)
-@EnableJpaRepositories(basePackageClasses = UseCaseTestApplication.class)
+@EntityScan(
+        basePackageClasses = UseCaseTestApplication.class,
+        basePackages = "io.vanillabp.camunda8")
+@EnableJpaRepositories(
+        basePackageClasses = UseCaseTestApplication.class,
+        basePackages = "io.vanillabp.camunda8")
 public class UseCaseTestApplication {
 
     public static void main(

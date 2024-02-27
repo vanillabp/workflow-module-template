@@ -11,11 +11,11 @@ usecase:
 
 vanillabp:
   workflow-modules:
-    default-adapter: camunda8
     usecase:
-      workflows:
-        UseCase:
-          # config specific to process 'UseCase'
+      default-adapter: camunda8
+#      workflows:
+#        UseCase:
+#          # config specific to process 'UseCase'
       adapters:
         camunda8:
-          resources-location: classpath*:/usecase/processes8  # location specific to workflow module and adapter
+          resources-location: classpath*:/usecase/processes/camunda8  # location specific to workflow module and adapter
