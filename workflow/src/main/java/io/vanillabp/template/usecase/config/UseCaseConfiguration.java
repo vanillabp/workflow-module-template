@@ -1,16 +1,26 @@
 package io.vanillabp.template.usecase.config;
 
 import io.vanillabp.springboot.modules.WorkflowModuleProperties;
+import io.vanillabp.springboot.modules.WorkflowModulePropertiesConfiguration;
 import liquibase.integration.spring.SpringLiquibase;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.sql.DataSource;
 
+
 @EnableConfigurationProperties(UseCaseProperties.class)
+@ComponentScan(basePackages = "io.vanillabp.template.usecase")
+@EntityScan(basePackages = "io.vanillabp.template.usecase")
+@EnableJpaRepositories(basePackages = "io.vanillabp.template.usecase")
+@AutoConfigureBefore(WorkflowModulePropertiesConfiguration.class)
 public class UseCaseConfiguration {
 
     /*
@@ -18,7 +28,7 @@ public class UseCaseConfiguration {
      * therefore be wrapped in a static class as follows
      */
     @Configuration
-    static class UseCaseEarlyBeanConfiguration {
+    public static class UseCaseEarlyBeanConfiguration {
         @Bean
         public static WorkflowModuleProperties useCaseWorkflowModuleProperties() {
             return new WorkflowModuleProperties(UseCaseProperties.class, UseCaseProperties.WORKFLOW_MODULE_ID);
